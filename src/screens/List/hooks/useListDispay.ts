@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { selectList } from "../../../core/store/selectors/mainSelectors";
 import { useMemo, useState } from "react";
-import { TGloceryItem, TVal } from "../../../shared/models/models";
+import { TGroceryItem, TVal } from "../../../shared/models/models";
 import {
-  removeGloceryItem,
-  updateGloceryItem,
+  removeGroceryItem,
+  updateGroceryItem,
 } from "../../../shared/helpers/mutateList";
 import {
   EScreens,
@@ -32,18 +32,18 @@ export default function useListDispay() {
     setFiler(String(value));
   };
 
-  const onToggleItemStatus = (item: TGloceryItem): void => {
-    const newItem: TGloceryItem = {
+  const onToggleItemStatus = (item: TGroceryItem): void => {
+    const newItem: TGroceryItem = {
       ...item,
       status: item.status === EStatus.have ? EStatus.out : EStatus.have,
       date: new Date(),
     };
 
-    updateGloceryItem(newItem);
+    updateGroceryItem(newItem);
   };
 
-  const onRemoveItem = (item: TGloceryItem): void => {
-    removeGloceryItem(item);
+  const onRemoveItem = (item: TGroceryItem): void => {
+    removeGroceryItem(item);
   };
 
   const onGoToDetails = (id: number): void => {
@@ -60,13 +60,13 @@ export default function useListDispay() {
   };
 }
 
-function handleFilter(item: TGloceryItem, filter: string): boolean {
+function handleFilter(item: TGroceryItem, filter: string): boolean {
   if (filter === FilterOptions[0]) return true;
 
   return item.status === filter;
 }
 
-function handleSort(list: TGloceryItem[]): TGloceryItem[] {
+function handleSort(list: TGroceryItem[]): TGroceryItem[] {
   if (!list?.length) return [];
 
   const grouped = list.reduce((acc, item) => {
@@ -79,7 +79,7 @@ function handleSort(list: TGloceryItem[]): TGloceryItem[] {
   const keys = Object.keys(grouped).sort();
 
   keys.forEach((key) => {
-    grouped[key].sort((a: TGloceryItem, b: TGloceryItem) =>
+    grouped[key].sort((a: TGroceryItem, b: TGroceryItem) =>
       a.name.localeCompare(b.name)
     );
   });

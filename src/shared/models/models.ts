@@ -1,4 +1,4 @@
-export type TGloceryItem = {
+export type TGroceryItem = {
   id: number;
   date: Date;
   name: string;

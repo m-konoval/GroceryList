@@ -13,5 +13,5 @@ export enum EScreens {
 }
 
 export enum EStorageKeys {
-  list = "gloceryList",
+  list = "groceryList",
 }

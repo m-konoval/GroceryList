@@ -20,7 +20,7 @@ import {
   EStatusOptions,
 } from "../../shared/constants/constants";
 import useListDispay, { FilterOptions } from "./hooks/useListDispay";
-import GloceryItem from "../../shared/components/GloceryItem";
+import GroceryItem from "../../shared/components/GroceryItem";
 import Typography from "../../shared/components/Typography";
 
 const ListScreen: React.FC = () => {
@@ -47,7 +47,7 @@ const ListScreen: React.FC = () => {
     <SafeArea>
       <ScreenView>
         <HeadView>
-          <TitleText>Hello! This is your glocery list.</TitleText>
+          <TitleText>Hello! This is your grocery list.</TitleText>
 
           <FormView>
             <Controller
@@ -107,7 +107,7 @@ const ListScreen: React.FC = () => {
 
           {dispalyList?.length ? (
             dispalyList.map((item) => (
-              <GloceryItem
+              <GroceryItem
                 key={item.id}
                 data={item}
                 onRemove={onRemoveItem}

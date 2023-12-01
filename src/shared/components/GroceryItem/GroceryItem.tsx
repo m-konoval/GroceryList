@@ -9,8 +9,8 @@ import {
   SubText,
   IconImage,
   styles,
-} from "./gloceryItemStyle";
-import { TGloceryItem } from "../../models/models";
+} from "./groceryItemStyle";
+import { TGroceryItem } from "../../models/models";
 import { EStatus } from "../../constants/constants";
 import moment from "moment";
 import Typography from "../Typography";
@@ -19,14 +19,14 @@ import DoneIcon from "../../../../assets/done.png";
 import WarnIcon from "../../../../assets/warn.png";
 // TODO:
 
-interface IGloceryItemProps {
-  data: TGloceryItem;
-  onToggle: (item: TGloceryItem) => void;
-  onRemove: (item: TGloceryItem) => void;
+interface IGroceryItemProps {
+  data: TGroceryItem;
+  onToggle: (item: TGroceryItem) => void;
+  onRemove: (item: TGroceryItem) => void;
   onDetails: (id: number) => void;
 }
 
-const GloceryItem: React.FC<IGloceryItemProps> = ({
+const GroceryItem: React.FC<IGroceryItemProps> = ({
   data,
   onToggle,
   onRemove,
@@ -64,4 +64,4 @@ const GloceryItem: React.FC<IGloceryItemProps> = ({
   );
 };
 
-export default React.memo(GloceryItem);
+export default React.memo(GroceryItem);

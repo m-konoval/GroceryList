@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TGloceryItem } from "../../../shared/models/models";
+import { TGroceryItem } from "../../../shared/models/models";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { EStorageKeys } from "../../../shared/constants/constants";
 
 type TMainInitialState = {
-  list: TGloceryItem[];
+  list: TGroceryItem[];
 };
 
 const initialState: TMainInitialState = {
@@ -15,7 +15,7 @@ const mainSlice = createSlice({
   name: "anchors",
   initialState,
   reducers: {
-    setList: (state, { payload }: PayloadAction<TGloceryItem[]>) => {
+    setList: (state, { payload }: PayloadAction<TGroceryItem[]>) => {
       state.list = payload;
 
       AsyncStorage.setItem(EStorageKeys.list, JSON.stringify(payload));

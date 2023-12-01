@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import { TGloceryItem, TVal } from "../../../shared/models/models";
+import { TGroceryItem, TVal } from "../../../shared/models/models";
 import {
   EPriorityOptions,
   EStatusOptions,
 } from "../../../shared/constants/constants";
 import { useState } from "react";
-import { addGloceryItem } from "../../../shared/helpers/mutateList";
+import { addGroceryItem } from "../../../shared/helpers/mutateList";
 
 export default function useFormAdd() {
   const {
@@ -33,7 +33,7 @@ export default function useFormAdd() {
   };
 
   const onSubmit = handleSubmit(({ name }) => {
-    const item: TGloceryItem = {
+    const item: TGroceryItem = {
       id: Date.now(),
       name,
       priority,
@@ -41,7 +41,7 @@ export default function useFormAdd() {
       date: new Date(),
     };
 
-    addGloceryItem(item);
+    addGroceryItem(item);
 
     reset();
     setPriority(EPriorityOptions[0]);
