@@ -1,11 +1,11 @@
-# GloceryList
+# GroceryList
 Test app Grocery List
 
 install dependencies:
 
 `$ yarn`  ||  `$ npm install`
 
-Run 
+Run
 
 `$ npm start`  ||  `$ yarn start`
 
