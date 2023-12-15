@@ -39,6 +39,12 @@ export const RowView = styled.View`
   margin-bottom: 5px;
 `;
 
+export const StartRowView = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 export const SubText = styled(Typography)`
   font-size: 12px;
   line-height: 14px;

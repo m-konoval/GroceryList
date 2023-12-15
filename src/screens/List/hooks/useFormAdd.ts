@@ -18,6 +18,7 @@ export default function useFormAdd() {
   } = useForm({
     defaultValues: {
       name: "",
+      count: "0",
     },
   });
 
@@ -32,10 +33,11 @@ export default function useFormAdd() {
     String(value) && setStatus(String(value));
   };
 
-  const onSubmit = handleSubmit(({ name }) => {
+  const onSubmit = handleSubmit(({ name, count }) => {
     const item: TGroceryItem = {
       id: Date.now(),
       name,
+      count: Number(count),
       priority,
       status,
       date: new Date(),

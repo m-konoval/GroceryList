@@ -8,6 +8,10 @@ import {
   RowView,
   ErrorText,
   SubText,
+  CountInput,
+  InputContainerView,
+  FieldView,
+  ScrollView,
   styles,
 } from "./listScreenStyle";
 import Button from "../../shared/components/Button";
@@ -50,24 +54,41 @@ const ListScreen: React.FC = () => {
           <TitleText>Hello! This is your grocery list.</TitleText>
 
           <FormView>
-            <Controller
-              control={control}
-              rules={{
-                minLength: 3,
-              }}
-              render={({ field: { onChange, value, onBlur } }) => (
-                <Input
-                  placeholder="Enter product name "
-                  onChangeText={onChange}
-                  value={value}
-                  onBlur={onBlur}
+            <InputContainerView>
+              <FieldView>
+                <Controller
+                  control={control}
+                  rules={{
+                    minLength: 3,
+                  }}
+                  render={({ field: { onChange, value, onBlur } }) => (
+                    <Input
+                      placeholder="Enter product name "
+                      onChangeText={onChange}
+                      value={value}
+                      onBlur={onBlur}
+                    />
+                  )}
+                  name="name"
                 />
-              )}
-              name="name"
-            />
-            {errorName && (
-              <ErrorText>Please, enter more than 3 symbols</ErrorText>
-            )}
+                {errorName && (
+                  <ErrorText>Please, enter more than 3 symbols</ErrorText>
+                )}
+              </FieldView>
+
+              <Controller
+                control={control}
+                render={({ field: { onChange, value, onBlur } }) => (
+                  <CountInput
+                    placeholder="1 or more..."
+                    onChangeText={onChange}
+                    value={value}
+                    onBlur={onBlur}
+                  />
+                )}
+                name="count"
+              />
+            </InputContainerView>
 
             <RowView>
               <LineSelector
@@ -105,19 +126,21 @@ const ListScreen: React.FC = () => {
             <SubText>Items: {dispalyList.length}</SubText>
           </RowView>
 
-          {dispalyList?.length ? (
-            dispalyList.map((item) => (
-              <GroceryItem
-                key={item.id}
-                data={item}
-                onRemove={onRemoveItem}
-                onToggle={onToggleItemStatus}
-                onDetails={onGoToDetails}
-              />
-            ))
-          ) : (
-            <Typography>No Items:</Typography>
-          )}
+          <ScrollView>
+            {dispalyList?.length ? (
+              dispalyList.map((item) => (
+                <GroceryItem
+                  key={item.id}
+                  data={item}
+                  onRemove={onRemoveItem}
+                  onToggle={onToggleItemStatus}
+                  onDetails={onGoToDetails}
+                />
+              ))
+            ) : (
+              <Typography>No Items:</Typography>
+            )}
+          </ScrollView>
         </ContentView>
       </ScreenView>
     </SafeArea>

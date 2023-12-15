@@ -8,6 +8,7 @@ import {
   BoldText,
   SubText,
   IconImage,
+  StartRowView,
   styles,
 } from "./groceryItemStyle";
 import { TGroceryItem } from "../../models/models";
@@ -55,7 +56,10 @@ const GroceryItem: React.FC<IGroceryItemProps> = ({
           <SubText>upd.: {moment(data.date).format("h:mm a, DD.MM")}</SubText>
         </RowView>
 
-        <Typography>{data.name}</Typography>
+        <StartRowView>
+          <Typography>{data.name}</Typography>
+          {Number(data.count) ? <Typography>({data.count})</Typography> : null}
+        </StartRowView>
       </MainTouchable>
       <RemoveTouchable onPress={() => onRemove(data)}>
         <IconImage source={RemoceIcon} />

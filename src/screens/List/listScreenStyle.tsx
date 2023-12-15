@@ -6,6 +6,10 @@ export const SafeArea = styled.SafeAreaView`
   flex: 1;
 `;
 
+export const ScrollView = styled.ScrollView`
+  flex: 1;
+`;
+
 export const ScreenView = styled.View`
   flex: 1;
   padding: 32px 24px 24px;
@@ -52,15 +56,38 @@ export const RowView = styled.View`
 `;
 
 export const Input = styled.TextInput`
-  width: 100%;
+  flex: 1;
   padding: 8px 16px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  margin-bottom: 16px;
+`;
+
+export const CountInput = styled(Input)`
+  min-width: 80px;
+  flex-grow: 0;
+  margin-left: 5px;
+  border-left-width: 1px;
+  border-left-color: #999;
+`;
+
+export const FieldView = styled.View`
+  position: relative;
+  flex: 1;
 `;
 
 export const ErrorText = styled(Typography)`
+  position: absolute;
+  top: 100%;
+  padding-top: 5px;
+  left: 0;
   font-size: 14px;
   line-height: 18px;
   color: #b93e3e;
+  z-index: 1;
+`;
+
+export const InputContainerView = styled.View`
+  display: flex;
+  margin-bottom: 24px;
+  flex-direction: row;
+  border: 1px solid #999;
+  border-radius: 5px;
 `;
